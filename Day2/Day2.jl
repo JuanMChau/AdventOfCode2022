@@ -16,15 +16,28 @@ function processVictory(line)
     return victoryMap[item1][item2]
 end
 
-# Process both parts in one run
-open("Day2/Day2Input.txt") do file
-    gameOutput = 0
-    victoryOutput = 0
-    for line in eachline(file)
-        gameOutput += processGame(line)
-        victoryOutput += processVictory(line)
-    end
+function calculateEverything(filename,answer1=nothing,answer2=nothing)
+    # Process both parts in one run
+    open(filename) do file
+        gameOutput = 0
+        victoryOutput = 0
+        for line in eachline(file)
+            gameOutput += processGame(line)
+            victoryOutput += processVictory(line)
+        end
 
-    print(string("\nTotal score for XYZ as RPS: ",gameOutput))
-    print(string("\nTotal score for XYZ as LDW: ",victoryOutput))
+        print(string("\nTotal score for XYZ as RPS: ",gameOutput))
+        if (!isnothing(answer1))
+            @assert(gameOutput==answer1)
+            print("\nFirst test passed!")
+        end
+        print(string("\nTotal score for XYZ as LDW: ",victoryOutput))
+        if (!isnothing(answer2))
+            @assert(victoryOutput==answer2)
+            print("\nSecond test passed!")
+        end
+    end
 end
+
+calculateEverything("Day2/Day2Test.txt",15,12)
+calculateEverything("Day2/Day2Input.txt")
