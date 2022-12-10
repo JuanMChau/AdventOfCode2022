@@ -1,3 +1,4 @@
+# Structure to save information about each pair of shifts
 mutable struct doubleShifts
     elf1Start::Int
     elf1End::Int
@@ -5,6 +6,7 @@ mutable struct doubleShifts
     elf2End::Int
 end
 
+# Function to convert string into pair of shifts
 function splitString(string,separators)
     firstSeparation = split(string,separators[1])
     elf1 = split(firstSeparation[1],separators[2])
@@ -39,12 +41,14 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
     end
     
     print(string("\nNumber of fully contained shifts: ",fullyOverlappedShifts))
+    # validate answer 1
     if (!isnothing(answer1))
         @assert(fullyOverlappedShifts==answer1)
         print("\nFirst test passed!")
     end
 
     print(string("\nNumber of partially contained shifts: ",partiallyOverlappedShifts))
+    # validate answer 2
     if (!isnothing(answer2))
         @assert(partiallyOverlappedShifts==answer2)
         print("\nSecond test passed!")

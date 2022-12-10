@@ -1,3 +1,4 @@
+# Calculate everything in one run
 function calculateEverything(filename,answer1=nothing,answer2=nothing)
     allElves = Int64[]
     append!(allElves,0)
@@ -15,6 +16,7 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
 
     # Part 1: find elf with highest calories output    
     print(string("\nElf with highest output: ", findmax(allElves)))
+    # validate answer 1
     if (!isnothing(answer1))
         @assert(findmax(allElves)[1]==answer1)
         print("\nFirst test passed!")
@@ -24,6 +26,7 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
     sortedElves = sort(allElves,rev=true)
     print(string("\nOutput for top 3 elves: ",sortedElves[1:3]))
     print(string("\nTotal calories sum: ",sum(sortedElves[1:3])))
+    # validate answer 2
     if (!isnothing(answer2))
         @assert(sum(sortedElves[1:3])==answer2)
         print("\nSecond test passed!")
