@@ -1,5 +1,5 @@
 # Structure to save information about each pair of shifts
-mutable struct doubleShifts
+mutable struct DoubleShifts
     elf1Start::Int
     elf1End::Int
     elf2Start::Int
@@ -11,7 +11,7 @@ function splitString(string,separators)
     firstSeparation = split(string,separators[1])
     elf1 = split(firstSeparation[1],separators[2])
     elf2 = split(firstSeparation[2],separators[2])
-    return doubleShifts(parse(Int,elf1[1]),parse(Int,elf1[2]),parse(Int,elf2[1]),parse(Int,elf2[2]))
+    return DoubleShifts(parse(Int,elf1[1]),parse(Int,elf1[2]),parse(Int,elf2[1]),parse(Int,elf2[2]))
 end
 
 # Part 1: calculate fully overlapped shifts
