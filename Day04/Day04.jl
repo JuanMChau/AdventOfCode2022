@@ -56,5 +56,5 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
     end
 end
 
-calculateEverything("Day4/Day4Test.txt",2,4)
-calculateEverything("Day4/Day4Input.txt")
+calculateEverything("Day04/Day04Test.txt",2,4)
+calculateEverything("Day04/Day04Input.txt")

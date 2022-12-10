@@ -70,10 +70,10 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
         # validate answer 2
         if (!isnothing(answer2))
             @assert(groupedPriority==answer2)
-            printf("\nSecond test passed!")
+            print("\nSecond test passed!")
         end
     end
 end
 
-calculateEverything("Day3/Day3Test.txt",157,70)
-calculateEverything("Day3/Day3Input.txt")
+calculateEverything("Day03/Day03Test.txt",157,70)
+calculateEverything("Day03/Day03Input.txt")

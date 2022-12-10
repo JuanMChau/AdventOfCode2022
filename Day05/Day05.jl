@@ -101,5 +101,5 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
     end
 end
 
-calculateEverything("Day5/Day5Test.txt","CMZ","MCD")
-calculateEverything("Day5/Day5Input.txt")
+calculateEverything("Day05/Day05Test.txt","CMZ","MCD")
+calculateEverything("Day05/Day05Input.txt")

@@ -33,5 +33,5 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
     end
 end
 
-calculateEverything("Day1/Day1Test.txt",24000,45000)
-calculateEverything("Day1/Day1Input.txt")
+calculateEverything("Day01/Day01Test.txt",24000,45000)
+calculateEverything("Day01/Day01Input.txt")
