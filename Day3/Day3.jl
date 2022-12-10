@@ -1,4 +1,4 @@
-# Part 1: find common element in both rucksacks
+
 function processCommonCharacter(commonCharacter)
     if (Int(commonCharacter) > Int('Z'))
         return Int(commonCharacter)-Int('a')+1
@@ -36,11 +36,13 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
         counter = 0
         groupedPriority = 0
         for line in eachline(file)
+            # Part 1: find common element in both of each rucksack's halves
             item1 = SubString(line,1,Int(0.5*length(line)))
             item2 = SubString(line,Int(1+length(line)*0.5),length(line))
             commonCharacter = processBag(item1,item2)
             totalPriority += processCommonCharacter(commonCharacter[1])
 
+            # Part 2: find common element between groups of 3 rucksacks
             line1 = line2
             line2 = line3
             line3 = line
