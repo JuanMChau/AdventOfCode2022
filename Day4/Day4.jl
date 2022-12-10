@@ -27,7 +27,7 @@ function calculatePartialOverlap(parsedShifts)
 end
 
 function calculateEverything(filename,answer1=nothing,answer2=nothing)
-    # Just calculate each elf's output
+    # Just calculate each overlapping pair of shifts
     fullyOverlappedShifts = 0
     partiallyOverlappedShifts = 0
     open(filename) do file
@@ -37,15 +37,13 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
             partiallyOverlappedShifts += calculatePartialOverlap(parsedShifts)
         end
     end
-
-    # Part 1: find elf with highest calories output    
+    
     print(string("\nNumber of fully contained shifts: ",fullyOverlappedShifts))
     if (!isnothing(answer1))
         @assert(fullyOverlappedShifts==answer1)
         print("\nFirst test passed!")
     end
 
-    # Part 2: find top 3 elves with highest calories output
     print(string("\nNumber of partially contained shifts: ",partiallyOverlappedShifts))
     if (!isnothing(answer2))
         @assert(partiallyOverlappedShifts==answer2)
