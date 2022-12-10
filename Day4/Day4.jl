@@ -28,6 +28,7 @@ function calculatePartialOverlap(parsedShifts)
         ((parsedShifts.elf2Start<=parsedShifts.elf1End)&&(parsedShifts.elf2End>=parsedShifts.elf1End)))
 end
 
+# Calculate everything in one run
 function calculateEverything(filename,answer1=nothing,answer2=nothing)
     # Just calculate each overlapping pair of shifts
     fullyOverlappedShifts = 0

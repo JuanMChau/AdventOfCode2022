@@ -61,6 +61,7 @@ function parseLineMoveAll(line,allStacks)
     end
 end
 
+# Calculate everything in one run
 function calculateEverything(filename,answer1=nothing,answer2=nothing)
     allStacks = Dict{Int,Any}()
     allStacksNew = nothing
