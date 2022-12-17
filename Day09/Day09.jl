@@ -201,7 +201,7 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
 
     open(filename) do file
         fileData = readlines(file)
-        boardTwo = parseInstructionsTwo(fileData)
+        boardTwo = parseInstructionsTwo(fileData)        
         boardTen = parseInstructionsTen(fileData)
     end
 
@@ -223,5 +223,5 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
 end
 
 calculateEverything("Day09/Day09Test1.txt",13,1)
-calculateEverything("Day09/Day09Test2.txt",nothing,36)
-calculateEverything("Day09/Day09Input.txt")
+# calculateEverything("Day09/Day09Test2.txt",nothing,36)
+# calculateEverything("Day09/Day09Input.txt")
