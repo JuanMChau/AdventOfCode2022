@@ -188,7 +188,6 @@ function parseInstructionsTen(allLines)
 
     for line in allLines
         board = ropeTakesStep(line,board,rope)
-        # display(board)
     end
 
     return board
@@ -223,5 +222,5 @@ function calculateEverything(filename,answer1=nothing,answer2=nothing)
 end
 
 calculateEverything("Day09/Day09Test1.txt",13,1)
-# calculateEverything("Day09/Day09Test2.txt",nothing,36)
-# calculateEverything("Day09/Day09Input.txt")
+calculateEverything("Day09/Day09Test2.txt",nothing,36)
+calculateEverything("Day09/Day09Input.txt")
