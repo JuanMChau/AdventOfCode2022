@@ -68,22 +68,16 @@ end
 function canTakeStep(map::Array{Any,3},fromNode::Array{Int,1},toNode::Array{Int,1})
     # check border conditions
     if ((toNode[1]<1)||(toNode[1]>size(map,2))||(toNode[2]<1)||(toNode[2]>size(map,1)))
-        # print("BORDER")
         return false        
     end 
     
     # check height conditions
-    # print(string("\nFrom: ",getHeight(map,toNode)))
-    # print(string("\nTo: ",getHeight(map,fromNode)))
     if ((getHeight(map,toNode)-getHeight(map,fromNode))>1)
-        # print("HEIGHT")
         return false
     end
 
     # check movement conditions
-    # print(string("\nAssigned: ",isassigned(map,toNode[2],toNode[1],3)))
     if (isassigned(map,toNode[2],toNode[1],3)&&(map[toNode[2],toNode[1],3]<map[fromNode[2],fromNode[1],3]))
-        # print("MOVEMENT")
         return false
     end
 
@@ -96,7 +90,6 @@ function removeDuplicatesAndAdd(nodeList::Array{Any,1},node::Array{Int,1})
 
     for i = length(nodeList):-1:1
         nodeToCompare = nodeList[i]
-        # print(string("\nComparing ",nodeToCompare," ",node))
         if ((nodeToCompare[1]==node[1])&&(nodeToCompare[2]==node[2]))
             if (nodeToCompare[3]>=node[3])
                 splice!(nodeList,i)
@@ -117,51 +110,38 @@ end
 function runAStar(map,startPosition)    
     expandedNodes = Array{Any,1}()
     append!(expandedNodes,[append!(startPosition,[getHeight(map,startPosition)])])
-    # print(expandedNodes)
 
     nodeCount = 1
 
     while (!isempty(expandedNodes))
         currentNode = splice!(expandedNodes,1)
-        # print(currentNode)
-
-        # print(string("\nExploring node: ",nodeCount))
-        # nodeCount += 1
 
         # check left node
         if (canTakeStep(map,currentNode,currentNode+[-1,0,1]))
-            # print("BOOPL")
             newNode = currentNode+[-1,0,1]
             map[newNode[2],newNode[1],3] = newNode[3]
             expandedNodes = removeDuplicatesAndAdd(expandedNodes,newNode)
-            # display(map)
         end
 
         # check right node
         if (canTakeStep(map,currentNode,currentNode+[1,0,1]))
-            # print("BOOPR")
             newNode = currentNode+[1,0,1]
             map[newNode[2],newNode[1],3] = newNode[3]
             expandedNodes = removeDuplicatesAndAdd(expandedNodes,newNode)
-            # display(map)
         end
 
         # check up node
         if (canTakeStep(map,currentNode,currentNode+[0,-1,1]))
-            # print("BOOPU")
             newNode = currentNode+[0,-1,1]
             map[newNode[2],newNode[1],3] = newNode[3]
-            expandedNodes = removeDuplicatesAndAdd(expandedNodes,newNode)            
-            # display(map)
+            expandedNodes = removeDuplicatesAndAdd(expandedNodes,newNode)
         end
 
         # check down node
         if (canTakeStep(map,currentNode,currentNode+[0,1,1]))
-            # print("BOOPD")
             newNode = currentNode+[0,1,1]
             map[newNode[2],newNode[1],3] = newNode[3]
             expandedNodes = removeDuplicatesAndAdd(expandedNodes,newNode)
-            # display(map)
         end
     end
     
