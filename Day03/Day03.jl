@@ -1,4 +1,3 @@
-
 # Function to find priority value for common character
 function processCommonCharacter(commonCharacter)
     if (Int(commonCharacter) > Int('Z'))
